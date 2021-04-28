@@ -11,9 +11,9 @@ import { Form, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
+  constructor(private http: HttpClient) { }
 
-  getList(): Observable<User>{
+  public getList(): Observable<User>{
     const userData = this.http.get('./../assets/user.json')
     return userData as  Observable<User>;
   }

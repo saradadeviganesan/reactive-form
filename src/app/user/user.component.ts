@@ -50,9 +50,6 @@ export class UserComponent implements OnInit {
         (data: User) => {
           this.userDetails = data;
           this.setUserHobbies(this.userDetails);
-        },
-        error => {
-          console.log(error);
         }
       );
   }

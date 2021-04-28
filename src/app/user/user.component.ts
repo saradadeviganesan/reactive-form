@@ -117,7 +117,7 @@ export class UserComponent implements OnInit {
   }
 
   submitUserForm(): void {
-    console.log(`Form submitted successfully: ${JSON.stringify(this.userForm.value)}`);
+    console.log(`%c Form submitted successfully: ${JSON.stringify(this.userForm.value)}`, 'background: green; color: white;');
     this.isAdded = false;
   }
 

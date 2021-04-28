@@ -1,0 +1,44 @@
+<form [formGroup]="userForm" (ngSubmit)="submitUserForm()">
+    <div class="form-group row">
+        <label>Name:</label>
+        <span>{{userDetails.fullName}}</span>
+    </div>
+    <div class="form-group row">
+        <label>Address:</label>
+        <span>{{userAddress}}</span>
+    </div>
+    <div class="form-group row" ><!--name: ['', Validators.required]-->
+        <label>Hobbies:</label>
+        <input class="form-control" type="text" formControlName="name">
+        <button type="button" (click)="addHobby()">Add</button>
+    </div>
+    <!--START error handling container-->
+    <div class="form-group row" *ngIf="isAdded && userForm.get('name')?.errors?.isDuplicate">
+        <label>&nbsp;</label>
+        <span class="error">Hobby already Exists!</span>
+    </div>
+    <div class="form-group row" *ngIf="isAdded && userForm.get('name')?.errors?.required">
+        <label>&nbsp;</label>
+        <span class="error">Hobby is required!</span>
+    </div>
+    <div class="form-group row" *ngIf="isAdded && userForm.get('name')?.errors?.pattern">
+        <label>&nbsp;</label>
+        <span class="error">Only strings are allowed!</span>
+    </div>
+    <!--END error handling container-->
+    <div class="form-group row">
+        <label>&nbsp;</label>
+        <button type="button" (click)="removeHobbies()">Remove</button>
+    </div>
+    <div class="form-group row">
+        <label>&nbsp;</label>
+        <div>
+            <div class="col" *ngFor="let userHobby of userDetails.hobbies">
+                <input type="checkbox" (checked)="userHobby.isChecked" (change)="userHobby.isChecked = !userHobby.isChecked" />
+                <span>{{userHobby.name}}</span>
+            </div>
+        </div>
+        
+    </div>
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>

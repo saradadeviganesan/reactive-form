@@ -1,0 +1,14 @@
+.row{
+    padding:5px;
+    label{
+        width: 100px;
+        display: inline-block;
+    }
+    >div{
+        display: inline-block;
+        max-height: 300px;
+    }
+    .error{
+        color: red;
+    }
+}

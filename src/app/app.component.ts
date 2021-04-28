@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { ReactiveFormConfig } from "@rxweb/reactive-form-validators";
 
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'reactive-form';
+  title = 'Angular 6';
 }
